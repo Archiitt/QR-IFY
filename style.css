@@ -40,3 +40,25 @@ animation: rainbow 18s ease infinite;
     50%{background-position:100% 19%}
     100%{background-position:0% 82%}
 }
+.wrapper{
+  width: 370px;
+  padding: 25px 30px;
+  border-radius: 5px;
+  background:rgb(43, 41, 41);
+  box-shadow: 7px 7px 20px rgba(0,0,0,0.05); 
+  background: linear-gradient(-45deg, rgba(0,0,0,0.22), rgba(255,255,255,0.25));
+  box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.25), -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
+  border-radius: 40px; 
+  position: relative;
+  overflow: hidden;
+
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  padding: 1em;
+}
+.wrapper.active{
+  height: 530px;
+}
