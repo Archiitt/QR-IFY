@@ -51,7 +51,6 @@ animation: rainbow 18s ease infinite;
   border-radius: 40px; 
   position: relative;
   overflow: hidden;
-
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
