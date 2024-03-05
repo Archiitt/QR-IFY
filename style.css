@@ -1,3 +1,4 @@
+/* Import Google Font - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 *{
   margin: 0;
@@ -12,11 +13,12 @@ body{
   min-height: 100vh;
   background: linear-gradient(100deg, #FFFADD , #8ECDDD , #22668D);
   background-size: 1800% 1800%;
-  -webkit-animation: rainbow 18s ease infinite;
-  -z-animation: rainbow 18s ease infinite;
-  -o-animation: rainbow 18s ease infinite;
-  animation: rainbow 18s ease infinite;
-}
+
+-webkit-animation: rainbow 18s ease infinite;
+-z-animation: rainbow 18s ease infinite;
+-o-animation: rainbow 18s ease infinite;
+ animation: rainbow 18s ease infinite;}
+
 @-webkit-keyframes rainbow {
     0%{background-position:0% 82%}
     50%{background-position:100% 19%}
@@ -50,6 +52,7 @@ body{
   border-radius: 40px; 
   position: relative;
   overflow: hidden;
+
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
@@ -69,9 +72,6 @@ header p{
   margin-top: 15px;
   color: #000000;
   font-size: 16px;
-}
-.wrapper.active{
-  height: 530px;
 }
 .wrapper .form{
   margin: 20px 0 25px;
@@ -134,6 +134,65 @@ header p{
     opacity: 0;
     transition: opacity 0.5s;
   }
-    box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.25), -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
-    border-radius: 50px; 
+  
+  .form button:hover:before{
+    opacity: 1;
+    z-index: -1;
   }
+  button:hover{
+    z-index: 1;
+    animation: glow 8s linear infinite;
+  }
+  @keyframes glow {
+    0%{
+      background-position: 0%;
+    }
+    100%{
+      background-position: 400%;
+    }
+  }
+  
+  @media(max-width: 430px){
+    .wrapper{
+      max-width: 345px;
+      width: 100%;
+    }
+  }
+
+.qr-code{
+  opacity: 0;
+  display: flex;
+  padding: 33px 0;
+  border-radius: 5px;
+  align-items: center;
+  pointer-events: none;
+  justify-content: center;
+  border: 1px solid #ccc;
+}
+.wrapper.active .qr-code{
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.5s 0.05s ease;
+}
+.qr-code img{
+  width: 170px;
+}
+
+@media (max-width: 430px){
+  .wrapper{
+    height: 255px;
+    padding: 16px 20px;
+  }
+  .wrapper.active{
+    height: 510px;
+  }
+  header p{
+    color: #696969;
+  }
+  .form :where(input, button){
+    height: 52px;
+  }
+  .qr-code img{
+    width: 160px;
+  }  
+}
