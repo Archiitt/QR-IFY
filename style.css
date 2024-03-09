@@ -7,29 +7,20 @@
 }
 body{
   display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 0 10px;
   min-height: 100vh;
-  background: linear-gradient(100deg, #FFFADD , #8ECDDD , #22668D);
-  background-size: 1800% 1800%;
+  align-items: center;
+  background: #3498DB;
+  justify-content: center;
 }
 .wrapper{
-  width: 370px;
-  padding: 25px 30px;
-  border-radius: 5px;
-  background:rgb(43, 41, 41);
-  box-shadow: 7px 7px 20px rgba(0,0,0,0.05); 
-  background: linear-gradient(-45deg, rgba(0,0,0,0.22), rgba(255,255,255,0.25));
-  box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.25), -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
-  border-radius: 40px; 
-  position: relative;
-  overflow: hidden;
-  font-family: sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content:center;
-  align-items: center;
-  padding: 1em;
+  height: 265px;
+  max-width: 410px;
+  background: #fff;
+  border-radius: 7px;
+  padding: 20px 25px 0;
+  transition: height 0.2s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 .wrapper.active{
   height: 530px;
@@ -37,11 +28,10 @@ body{
 header h1{
   font-size: 21px;
   font-weight: 500;
-  margin-bottom: 5px;
 }
 header p{
-  margin-top: 15px;
-  color: #000000;
+  margin-top: 5px;
+  color: #575757;
   font-size: 16px;
 }
 .wrapper .form{
@@ -64,52 +54,49 @@ header p{
   box-shadow: 0 3px 6px rgba(0,0,0,0.13);
 }
 .form input::placeholder{
-  color: #000000;
+  color: #999;
 }
 .form button{
-    height: 52px;
-    font-size: 17px;
-    margin-top: 50px;
-    transition: 0.3s ease;
-    position: relative; /* yaha se shuru hai */
-    border: none;
-    outline: none;
-    /*background: #675AFE;*/
-    font-size: 20px;
-    font-weight: 50;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background 0.5s;
-    background: linear-gradient(-45deg, rgba(0,0,0,0.22), rgba(255,255,255,0.25));
-    box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.25), -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
-    border-radius: 50px; 
-  }
- .form button:hover{
-    background: linear-gradient(90deg, #F40076, #e095fd, #E233FF, #13E2DA, 
-    #0B63F6, #0c50ee, #FF0076, #6699FF, #FF0076);
-    background-size: 400%;
-  }
+  color: #fff;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 17px;
+  background: #3498DB;
+}
+.qr-code{
+  opacity: 0;
+  display: flex;
+  padding: 33px 0;
+  border-radius: 5px;
+  align-items: center;
+  pointer-events: none;
+  justify-content: center;
+  border: 1px solid #ccc;
+}
+.wrapper.active .qr-code{
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.5s 0.05s ease;
+}
+.qr-code img{
+  width: 170px;
+}
 
-  .form button:before{
-    content: '';
-    position: absolute;
-    background: inherit;
-    top: -5px;
-    right: -5px;
-    bottom: -5px;
-    left: -5px;
-    border-radius: 50px;
-    filter: blur(20px);
-    opacity: 0;
-    transition: opacity 0.5s;
+@media (max-width: 430px){
+  .wrapper{
+    height: 255px;
+    padding: 16px 20px;
   }
-  
-  .form button:hover:before{
-    opacity: 1;
-    z-index: -1;
+  .wrapper.active{
+    height: 510px;
   }
-  button:hover{
-    z-index: 1;
-    animation: glow 8s linear infinite;
+  header p{
+    color: #696969;
   }
+  .form :where(input, button){
+    height: 52px;
+  }
+  .qr-code img{
+    width: 160px;
+  }  
+}
